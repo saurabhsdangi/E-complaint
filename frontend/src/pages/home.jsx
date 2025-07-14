@@ -25,22 +25,29 @@ const Home = () => {
     fetchPosts();
   }, []);
 
-  const handleUpvote = async (id) => {
-    const upvoted = JSON.parse(localStorage.getItem("upvotedPosts")) || [];
+ const handleUpvote = async (id) => {
+  const user = JSON.parse(localStorage.getItem("user"));
+  if (!user || !user.username) {
+    alert("You must be logged in to upvote.");
+    return;
+  }
 
-    if (upvoted.includes(id)) {
-      alert("You’ve already upvoted this post.");
-      return;
-    }
+  const upvoted = JSON.parse(localStorage.getItem("upvotedPosts")) || [];
 
-    try {
-      await axios.put(`/posts/upvote/${id}`);
-      localStorage.setItem("upvotedPosts", JSON.stringify([...upvoted, id]));
-      fetchPosts();
-    } catch (err) {
-      console.error("Upvote failed:", err);
-    }
-  };
+  if (upvoted.includes(id)) {
+    alert("You’ve already upvoted this post.");
+    return;
+  }
+
+  try {
+    await axios.put(`/posts/upvote/${id}`); // ✅ uses updated axios baseURL
+    localStorage.setItem("upvotedPosts", JSON.stringify([...upvoted, id]));
+    fetchPosts();
+  } catch (err) {
+    console.error("Upvote failed:", err);
+  }
+};
+
 
   const filteredPosts = posts.filter((post) => {
     const lowerSearch = search.toLowerCase();
