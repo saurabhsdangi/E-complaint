@@ -32,7 +32,7 @@ const Login = () => {
 
       if (pendingUsername && pendingPassword) {
         try {
-          await axios.post("http://localhost:5000/auth/signup", {
+          await axios.post("/auth/signup", {
             email: user.email,
             username: pendingUsername,
             password: pendingPassword,
@@ -48,7 +48,7 @@ const Login = () => {
         }
       } else {
         // 🧠 Existing user – fetch username from backend
-        const res = await axios.post("http://localhost:5000/auth/get-username", {
+        const res = await axios.post("/auth/get-username", {
           email: user.email,
         });
         finalUsername = res.data.username;

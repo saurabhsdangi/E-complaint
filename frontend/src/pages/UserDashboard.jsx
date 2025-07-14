@@ -11,7 +11,7 @@ const UserDashboard = () => {
   const fetchUserPosts = async () => {
   try {
     console.log("Fetching posts for username:", user.username);
-    const res = await axios.get(`http://localhost:5000/posts/user/${user.username}`);
+    const res = await axios.get(`/posts/user/${user.username}`);
     console.log("Fetched posts:", res.data); // ✅ Safe now
     setPosts(res.data);
     setLoading(false);

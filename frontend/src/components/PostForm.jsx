@@ -36,7 +36,7 @@ const PostForm = ({ onPostSuccess }) => {
   };
 
   try {
-    await axios.post("http://localhost:5000/posts", postData);
+    await axios.post("/posts", postData);
     setTitle("");
     setDescription("");
     setLocation("");

@@ -14,7 +14,7 @@ const Home = () => {
 
   const fetchPosts = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/posts");
+      const res = await axios.get("/posts");
       setPosts(res.data);
     } catch (err) {
       console.error("Error fetching posts:", err);
@@ -34,7 +34,7 @@ const Home = () => {
     }
 
     try {
-      await axios.put(`http://localhost:5000/posts/upvote/${id}`);
+      await axios.put(`/posts/upvote/${id}`);
       localStorage.setItem("upvotedPosts", JSON.stringify([...upvoted, id]));
       fetchPosts();
     } catch (err) {

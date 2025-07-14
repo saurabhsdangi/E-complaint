@@ -44,7 +44,7 @@ const Signup = () => {
 
     try {
       // Check username uniqueness first
-      await axios.post("http://localhost:5000/auth/check-username", {
+      await axios.post("/auth/check-username", {
         username,
       });
 
