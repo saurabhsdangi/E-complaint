@@ -1,4 +1,3 @@
-// backend/index.js
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -8,7 +7,14 @@ const authRoutes = require("./routes/authRoutes");
 const postRoutes = require('./routes/postRoutes');
 
 const app = express();
-app.use(cors());
+
+// ✅ Configure CORS for your Vercel frontend
+app.use(cors({
+  origin: "https://e-complaint-delta.vercel.app", // ✅ your Vercel frontend URL
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: false
+}));
+
 app.use(express.json());
 
 app.use("/auth", authRoutes); // ✅ Auth route

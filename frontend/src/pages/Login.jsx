@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import axios from "axios";
+import axios from "../axios"; // adjust path accordingly
+
 
 const Login = () => {
   const navigate = useNavigate();

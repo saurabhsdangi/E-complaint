@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import axios from "../axios"; // adjust path accordingly
+
 
 const UserDashboard = () => {
   const [posts, setPosts] = useState([]);

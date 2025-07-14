@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import axios from "axios";
+import axios from "../axios"; // adjust path accordingly
+
 import { useNavigate } from "react-router-dom";
 import { auth } from "../firebase"; // ✅ import initialized auth
 import {
