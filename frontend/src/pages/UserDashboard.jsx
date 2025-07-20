@@ -21,9 +21,8 @@ const UserDashboard = () => {
   }
 };
 
-
-    if (user?.username) fetchUserPosts();
-  }, [user]);
+if (user?.username) fetchUserPosts();
+}, [user]);
 
   if (loading) return <p className="text-center mt-10 text-gray-500">Loading your posts...</p>;
 

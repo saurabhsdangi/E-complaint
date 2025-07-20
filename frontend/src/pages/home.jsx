@@ -48,7 +48,6 @@ const Home = () => {
   }
 };
 
-
   const filteredPosts = posts.filter((post) => {
     const lowerSearch = search.toLowerCase();
     const matchesSearch =
